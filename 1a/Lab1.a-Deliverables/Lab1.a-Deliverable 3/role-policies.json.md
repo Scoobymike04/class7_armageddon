@@ -1,0 +1,60 @@
+  
+{  
+    "PolicyVersion": {  
+        "Document": {  
+            "Version": "2012-10-17",  
+            "Statement": \[  
+                {  
+                    "Action": \[  
+                        "secretsmanager:\*",  
+                        "cloudformation:CreateChangeSet",  
+                        "cloudformation:DescribeChangeSet",  
+                        "cloudformation:DescribeStackResource",  
+                        "cloudformation:DescribeStacks",  
+                        "cloudformation:ExecuteChangeSet",  
+                        "ec2:DescribeSecurityGroups",  
+                        "ec2:DescribeSubnets",  
+                        "ec2:DescribeVpcs",  
+                        "kms:DescribeKey",  
+                        "kms:ListAliases",  
+                        "kms:ListKeys",  
+                        "lambda:ListFunctions",  
+                        "rds:DescribeDBInstances",  
+                        "tag:GetResources"  
+                    \],  
+                    "Effect": "Allow",  
+                    "Resource": "\*"  
+                },  
+                {  
+                    "Action": \[  
+                        "lambda:AddPermission",  
+                        "lambda:CreateFunction",  
+                        "lambda:GetFunction",  
+                        "lambda:InvokeFunction",  
+                        "lambda:UpdateFunctionConfiguration"  
+                    \],  
+                    "Effect": "Allow",  
+                    "Resource": "arn:aws:lambda:\*:\*:function:SecretsManager\*"  
+                },  
+                {  
+                    "Action": \[  
+                        "serverlessrepo:CreateCloudFormationChangeSet"  
+                    \],  
+                    "Effect": "Allow",  
+                    "Resource": "arn:aws:serverlessrepo:\*:\*:applications/SecretsManager\*"  
+                },  
+                {  
+                    "Action": \[  
+                        "s3:GetObject"  
+                    \],  
+                    "Effect": "Allow",  
+                    "Resource": "arn:aws:s3:::awsserverlessrepo-changesets\*"  
+                }  
+            \]  
+        },  
+        "VersionId": "v1",  
+        "IsDefaultVersion": false,  
+        "CreateDate": "2018-04-04T18:05:29+00:00"  
+    }  
+}
+
